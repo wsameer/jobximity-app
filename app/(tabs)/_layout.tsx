@@ -54,7 +54,7 @@ const COLORS = {
 function IOSTabBar() {
   return (
     <NativeTabs>
-      {TAB_CONFIG.map((tab) => (
+      {TAB_CONFIG.map((tab, index) => (
         <NativeTabs.Trigger key={tab.name} name={tab.name}>
           <Label>{tab.label}</Label>
           <Icon sf={tab.sfIcon} />
@@ -79,6 +79,7 @@ function DefaultTabBar() {
           name={tab.name}
           options={{
             title: tab.label,
+            tabBarBadge: tab.badge ?? undefined,
             tabBarIcon: ({ color }) => (
               <Feather name={tab.featherIcon as any} size={24} color={color} />
             ),
